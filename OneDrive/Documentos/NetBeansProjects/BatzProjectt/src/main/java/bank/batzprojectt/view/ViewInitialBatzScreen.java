@@ -19,10 +19,11 @@ import bank.batzprojectt.view.Finance.BusinessCapital.CapitalTotal;
 import bank.batzprojectt.view.Finance.BusinessCapital.RetirarCapital;
 
 //Stock
-import bank.batzprojectt.view.Products.Stock.SaldoEmEstoque;
+import bank.batzprojectt.view.Products.Stock.ViewSaldoEmEstoque;
 import bank.batzprojectt.view.Products.Stock.NewReleases.AjusteDeInventario;
-import bank.batzprojectt.view.Products.Stock.NewReleases.CompraDeProdutos;
-import bank.batzprojectt.view.Products.Stock.Register.CadastroDeProdutos;
+import bank.batzprojectt.view.Products.Stock.NewReleases.ViewCompraDeProdutos;
+import bank.batzprojectt.view.Products.Stock.Register.ViewCadastroDeProdutos;
+import bank.batzprojectt.view.Products.Stock.Register.ViewProdutosCadastrados;
 
 //Reports
 import bank.batzprojectt.view.Reports.FaturamentoPorPeriodo;
@@ -37,14 +38,14 @@ import bank.batzprojectt.view.Shopee.Settings.CredenciaisDaAPI;
 
 
 
-public class InitialBatzScreen extends javax.swing.JFrame {
+public class ViewInitialBatzScreen extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InitialBatzScreen.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewInitialBatzScreen.class.getName());
 
     /**
      * Creates new form InitialBatzScreen
      */
-    public InitialBatzScreen() {
+    public ViewInitialBatzScreen() {
         initComponents();
         InicializarMapa();
     }
@@ -82,6 +83,8 @@ public class InitialBatzScreen extends javax.swing.JFrame {
         treeNode3.add(treeNode4);
         treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Cadastro");
         treeNode5 = new javax.swing.tree.DefaultMutableTreeNode("Cadastro de produtos");
+        treeNode4.add(treeNode5);
+        treeNode5 = new javax.swing.tree.DefaultMutableTreeNode("Produtos Cadastrados");
         treeNode4.add(treeNode5);
         treeNode3.add(treeNode4);
         treeNode2.add(treeNode3);
@@ -251,11 +254,12 @@ if (SelectionNo.isLeaf()) {
 ===============================================*/
     private void InicializarMapa() {
     // --- PRODUTOS ---
-    panelMap.put("Saldo em estoque", SaldoEmEstoque::new);
+    panelMap.put("Saldo em estoque", ViewSaldoEmEstoque::new);
 
     panelMap.put("Ajuste de Inventario (Perdas)", AjusteDeInventario::new);
-    panelMap.put("Compras de Produtos", CompraDeProdutos::new);
-    panelMap.put("Cadastro de produtos", CadastroDeProdutos::new);
+    panelMap.put("Compras de Produtos", ViewCompraDeProdutos::new);
+    panelMap.put("Cadastro de produtos", ViewCadastroDeProdutos::new);
+    panelMap.put("Produtos Cadastrados",ViewProdutosCadastrados::new);
 
     // --- SHOPEE ---
     panelMap.put("Lancamento de Anuncios", LancamentoDeAnuncios::new);

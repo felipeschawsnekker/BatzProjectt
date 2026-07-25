@@ -1,10 +1,10 @@
 package bank.batzprojectt;
-import bank.batzprojectt.view.InitialBatzScreen;
+import bank.batzprojectt.view.ViewInitialBatzScreen;
 
 public class BatzMain {
 
     public static void main(String[] args) {
-        InitialBatzScreen screen = new InitialBatzScreen();
+        ViewInitialBatzScreen screen = new ViewInitialBatzScreen();
         screen.setVisible(true);
     }
 }
